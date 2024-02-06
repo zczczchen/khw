@@ -1,0 +1,18 @@
+.counter-button {
+  font-size: 50px;
+  margin: 100px auto;
+  padding: 50px;
+  background-color: slateblue;
+  color: white;
+  font-weight: bold;
+  border: 20px double transparent;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: border 0.5s;
+}
+
+.counter-button:hover {
+  color: slateblue;
+  background-color: transparent;
+  border: 20px double slateblue;
+}

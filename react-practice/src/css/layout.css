@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: whitesmoke;
+  position: relative;
+}
+
+.header {
+  height: 75px;
+  background-color: ghostwhite;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+  position: sticky;
+  box-shadow: 0 0 10px gainsboro;
+}

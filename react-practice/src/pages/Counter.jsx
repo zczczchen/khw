@@ -1,8 +1,8 @@
 import React from "react";
-import "./css/reset.css";
-import "./css/style.css";
+import "../css/reset.css";
+import "../css/counter.css";
 
-function App() {
+function Counter() {
   const [count, setCount] = React.useState(0);
 
   function minusOne() {
@@ -35,4 +35,4 @@ function App() {
   );
 }
 
-export default App;
+export default Counter;
