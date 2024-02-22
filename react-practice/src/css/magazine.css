@@ -1,0 +1,48 @@
+.magazine-wrap {
+  margin-bottom: 70px;
+}
+
+.issue-year {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.issue-line {
+  color: lightgray;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.issues-wrap {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  row-gap: 20px;
+  column-gap: 12px;
+}
+
+@media screen and (max-width: 1024px) {
+  .issues-wrap {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .issues-wrap {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.issue {
+  width: 150px;
+}
+
+.issue-cover {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.issue-title {
+  font-size: 14px;
+  margin-top: 10px;
+}

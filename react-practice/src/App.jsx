@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import Home from "./pages/Home";
 import Counter from "./pages/Counter";
+import Magazine from "./pages/Magazine";
 import "./css/layout.css";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/counter' element={<Counter />} />
+        <Route path='/magazines/golf_digest' element={<Magazine />} />
       </Routes>
     </BrowserRouter>
   );

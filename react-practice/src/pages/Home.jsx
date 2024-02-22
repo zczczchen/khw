@@ -9,6 +9,9 @@ function Home() {
       <Link to='/counter'>
         <button className='counter-button'>Counter</button>
       </Link>
+      <Link to='/magazines/golf_digest'>
+        <button className='magazine-button'>Magazine</button>
+      </Link>
     </div>
   );
 }
