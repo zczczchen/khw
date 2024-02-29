@@ -1,6 +1,14 @@
+.contain-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
 .counter-button {
   font-size: 50px;
-  margin: 50px auto;
+  margin: 25px auto;
   padding: 50px;
   background-color: slateblue;
   color: white;
@@ -19,8 +27,8 @@
 
 .magazine-button {
   font-size: 50px;
-  margin: 50px auto;
-  padding: 50px;
+  margin: 25px auto;
+  padding: 50px 35px;
   background-color: seagreen;
   color: white;
   font-weight: bold;

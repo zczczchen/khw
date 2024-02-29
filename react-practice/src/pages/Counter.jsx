@@ -1,5 +1,4 @@
 import React from "react";
-import "../css/reset.css";
 import "../css/counter.css";
 
 function Counter() {
@@ -18,7 +17,7 @@ function Counter() {
   }
 
   return (
-    <div className='wrap'>
+    <div className='counter-wrap'>
       <div className='number'>{count}</div>
       <div className='caculater-button'>
         <button className='minus-button' onClick={minusOne}>

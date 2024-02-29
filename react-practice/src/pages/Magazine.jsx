@@ -1,68 +1,62 @@
 import React from "react";
-import "../css/reset.css";
+import Issue from "../components/Issue";
 import "../css/magazine.css";
 
 function Magazine() {
-  const [years, setYears] = React.useState("");
+  const [years, setYears] = React.useState([]);
+
   React.useEffect(() => {
-    fetch("https://api-sandbox.thekono.com/KPI2/titles/golf_digest/years").then(
-      (response) => {
-        console.log(response.data);
-        setYears(response.data);
-      }
-    );
+    async function getYears() {
+      const response = await fetch(
+        "https://api-sandbox.thekono.com/KPI2/titles/golf_digest/years"
+      );
+      const result = await response.json();
+      setYears(result.reverse());
+    }
+    getYears();
   }, []);
 
-  const [issues, setIssues] = React.useState("");
-  React.useEffect(() => {
-    fetch(
-      `https://api-sandbox.thekono.com/KPI2/titles/golf_digest/years/${years}/magazines`
-    ).then((response) => {
-      setIssues(response.data);
-      console.log(response.data);
-    });
-  }, []);
+  return (
+    <>
+      {years.map(({ year }) => (
+        <Issue key={year} year={year} />
+      ))}
+    </>
+  );
 
-  const [covers, setCovers] = React.useState("");
-  React.useEffect(() => {
-    fetch(
-      `https://api-sandbox.thekono.com/KPI2/titles/golf_digest/years/${years}/magazines`
-    ).then((response) => {
-      setCovers(response.data);
-      console.log(response.data);
-    });
-  }, []);
+  /*
+  return (
+    <div className='wrap'>
+      <div className='magazine-wrap'>
+        {years.map(({ year }) => (
+          <h2 key={year} className='issue-year'>
+            {year}
+          </h2>
+        ))}
+        <hr className='issue-line'/>
+        <div className='issues-wrap'>
+          <div className='issue'>
+            {covers.map(({ bid, covers }) => (
+              <img
+                key={bid}
+                className='issue-cover'
+                src={covers}
+                alt='issue-cover'
+              />
+            ))}
+            {issues.map(({ bid, issue }) => (
+              <h3 key={bid} className='issue-title'>
+                {issue}
+              </h3>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+  */
 
-  // return (
-  //   <div className='wrap'>
-  //     <div className='magazine-wrap'>
-  //       {years.map(({ year }) => (
-  //         <h2 key={year} className='issue-year'>
-  //           {year}
-  //         </h2>
-  //       ))}
-  //       <hr className='issue-line'/>
-  //       <div className='issues-wrap'>
-  //         <div className='issue'>
-  //           {covers.map(({ bid, covers }) => (
-  //             <img
-  //               key={bid}
-  //               className='issue-cover'
-  //               src={covers}
-  //               alt='issue-cover'
-  //             />
-  //           ))}
-  //           {issues.map(({ bid, issue }) => (
-  //             <h3 key={bid} className='issue-title'>
-  //               {issue}
-  //             </h3>
-  //           ))}
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
-
+  /*
   return (
     <div className='wrap'>
       <div className='magazine-wrap'>
@@ -333,6 +327,7 @@ function Magazine() {
       </div>
     </div>
   );
+  */
 }
 
 export default Magazine;

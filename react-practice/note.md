@@ -82,3 +82,14 @@ Response:
 }
 }
 ]
+
+components 僅用於單一頁面
+ex.magazine 頁面中的 issue
+
+建議作法
+把 magazine 獨立成一個資料夾
+-> Magazine.jsx 設成 index.jsx
+-> Issue.jsx 放到 magazine 中的 components 資料夾
+
+/pages/magazine/index.jsx
+/pages/magazine/components/Issue.jsx
