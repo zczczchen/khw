@@ -31,7 +31,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/counter' element={<Counter />} />
-        <Route path='/magazines/golf_digest' element={<Magazine />} />
+        <Route path='/magazines/:title_id' element={<Magazine />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,7 +1,12 @@
+.magazines-wrap {
+  width: 100%;
+  margin: 0px auto;
+  padding: 0 50px;
+}
+
 .magazine-wrap {
-  width: 1200px;
+  width: 100%;
   margin: 50px auto;
-  padding: 0 100px;
 }
 
 .issue-year {
@@ -22,40 +27,32 @@
   column-gap: 12px;
   justify-items: center;
   align-items: center;
+  width: 100%;
 }
 
 @media screen and (max-width: 1024px) {
-  .magazine-wrap {
-    width: 900px;
-  }
-
   .issues-wrap {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
 @media screen and (max-width: 425px) {
-  .magazine-wrap {
-    width: 700px;
-  }
-
   .issues-wrap {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .issues {
-  width: 150px;
+  width: 100%;
 }
 
 .issue-cover {
   width: 100%;
-  height: 200px;
+  height: auto;
   object-fit: cover;
 }
 
 .issue-title {
   font-size: 14px;
-  text-align: center;
   margin-top: 10px;
 }
