@@ -1,0 +1,41 @@
+.header {
+  width: 100%;
+  height: 75px;
+  background-color: ghostwhite;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  box-shadow: 0 0 10px gainsboro;
+}
+
+.login-entry {
+  padding: 10px 20px;
+  color: rgb(34, 34, 34);
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.login-entry:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+.register-entry {
+  padding: 10px 20px;
+  color: rgb(0, 129, 89);
+  font-weight: bold;
+  font-size: 15px;
+  text-decoration: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.register-entry:hover {
+  background-color: rgb(235, 235, 235);
+}
