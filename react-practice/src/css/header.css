@@ -10,9 +10,11 @@
   top: 0;
   left: 0;
   box-shadow: 0 0 10px gainsboro;
+  z-index: 1;
 }
 
-.login-entry {
+.login-entry,
+.logout-entry {
   padding: 10px 20px;
   color: rgb(34, 34, 34);
   font-weight: bold;

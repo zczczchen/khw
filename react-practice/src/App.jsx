@@ -1,4 +1,6 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 // import {
 //   Route,
 //   RouterProvider,
@@ -12,20 +14,28 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Counter from "./pages/Counter";
 import Magazine from "./pages/Magazine";
+
 import "./css/reset.css";
 import "./css/layout.css";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
-        <Route path='/counter' element={<Counter />} />
-        <Route path='/magazines/:titleId' element={<Magazine />} />
-      </Routes>
+      <div className='wrap'>
+        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route
+            path='/login'
+            element={<Login setIsLoggedIn={setIsLoggedIn} />}
+          />
+          <Route path='/register' element={<Register />} />
+          <Route path='/counter' element={<Counter />} />
+          <Route path='/magazines/:titleId' element={<Magazine />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }

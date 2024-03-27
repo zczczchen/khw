@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   margin: 100px auto;
+  position: relative;
 }
 
 .register_login-form-title {
@@ -107,6 +108,11 @@
   border: none;
 }
 
+.register_login-show-password-button img {
+  width: 18px;
+  height: 16px;
+}
+
 .register_remind {
   font-family: PingFang TC;
   font-size: 14px;
@@ -134,7 +140,17 @@
   text-decoration: none;
 }
 
-.register_login-submit {
+.loading-picture {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: 10s;
+}
+
+.register_login-submit-success,
+.register_login-submit-disable {
   width: 100%;
   border-radius: 8px;
   font-family: PingFang TC;
@@ -150,6 +166,14 @@
   cursor: pointer;
 }
 
-.register_login-submit:hover {
+.register_login-submit-success {
+  background: #00a270;
+}
+
+.register_login-submit-success:hover {
   background: #087351;
+}
+
+.register_login-submit-disable {
+  background: #c7c7c7;
 }

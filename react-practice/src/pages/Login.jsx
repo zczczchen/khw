@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import "../css/register_login.css";
 
-function Login() {
+function Login({ setIsLoggedIn }) {
   const {
     register,
     handleSubmit,
@@ -11,25 +11,42 @@ function Login() {
     watch,
   } = useForm();
 
-  const onSubmit = async (data) => {
-    const url = `https://api-sandbox.thekono.com/KPI2//users/login`;
+  const [loading, setLoading] = React.useState(false);
+
+  const navigate = useNavigate();
+
+  const onSubmit = async (data, e) => {
+    setLoading(true);
+    e.preventDefault();
+    const url = `https://api-sandbox.thekono.com/KPI2/users/login`;
+
     try {
       const response = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          platform: "kono",
+          account: data.email,
+          validator: data.password,
+        }),
       });
 
       const responseData = await response.json();
+
       if (response.ok) {
         console.log("Login successful");
+        localStorage.setItem("token", responseData.token);
+        setIsLoggedIn(true);
+        navigate(-1);
       } else {
         console.error(responseData.error);
       }
     } catch (error) {
       console.error("Error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -38,12 +55,9 @@ function Login() {
 
   const [showPassword, setShowPassword] = React.useState(false);
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const buttonStyle = {
-    background: email && password ? "#00a270" : "#c7c7c7",
+  const togglePasswordVisibility = (e) => {
+    e.preventDefault();
+    setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
   return (
@@ -96,6 +110,7 @@ function Login() {
           />
           <button
             className='register_login-show-password-button'
+            type='button'
             onClick={togglePasswordVisibility}
           >
             {showPassword ? (
@@ -112,14 +127,24 @@ function Login() {
         </Link>
 
         <button
-          className='register_login-submit'
+          className={
+            email && password
+              ? "register_login-submit-success"
+              : "register_login-submit-disable"
+          }
           type='submit'
-          style={buttonStyle}
-          // disabled={!email || !password}
+          disabled={loading}
         >
           確定
         </button>
       </form>
+      {loading && (
+        <img
+          className='loading-picture'
+          src='/kono-loading.gif'
+          alt='loading'
+        />
+      )}
     </div>
   );
 }

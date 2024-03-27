@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import "../css/header.css";
 
-function Header() {
+function Header({ isLoggedIn, setIsLoggedIn }) {
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 425px)" });
   return (
     <header className='header'>
@@ -14,14 +14,30 @@ function Header() {
           <img className='logo-img' src='/logo.svg' alt='Logo' />
         )}
       </Link>
-      <nav className='nav'>
-        <Link className='login-entry' to='/login'>
-          登入
-        </Link>
-        <Link className='register-entry' to='/register'>
-          免費註冊
-        </Link>
-      </nav>
+
+      {!isLoggedIn ? (
+        <nav className='nav'>
+          <Link className='login-entry' to='/login'>
+            登入
+          </Link>
+          <Link className='register-entry' to='/register'>
+            免費註冊
+          </Link>
+        </nav>
+      ) : (
+        <nav className='nav'>
+          <Link
+            className='logout-entry'
+            to='/'
+            onClick={() => {
+              setIsLoggedIn(false);
+              localStorage.removeItem("token");
+            }}
+          >
+            登出
+          </Link>
+        </nav>
+      )}
     </header>
   );
 }

@@ -11,18 +11,27 @@ function Register() {
     watch,
   } = useForm();
 
-  const onSubmit = async (data) => {
-    const url = `https://api-sandbox.thekono.com/KPI2//users/login`;
+  const onSubmit = async (data, e) => {
+    e.preventDefault();
+    const url = `https://api-sandbox.thekono.com/KPI2/users/login`;
+
     try {
       const response = await fetch(url, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          platform: "kono",
+          account: data.email,
+          validator: data.password,
+        }),
       });
 
       const responseData = await response.json();
+
+      localStorage.setItem("token", responseData.token);
+
       if (response.ok) {
         console.log("Login successful");
       } else {
@@ -34,22 +43,21 @@ function Register() {
   };
 
   const email = watch("email");
-  const password = React.useRef({});
-  password.current = watch("password", "");
+  const password = watch("password");
 
   const [showPassword, setShowPassword] = React.useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
+  const togglePasswordVisibility = (e) => {
+    e.preventDefault();
+    setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-  const toggleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword(!showConfirmPassword);
-  };
-
-  const buttonStyle = {
-    background: email && password ? "#00a270" : "#c7c7c7",
+  const toggleConfirmPasswordVisibility = (e) => {
+    e.preventDefault();
+    setShowConfirmPassword(
+      (prevShowConfirmPassword) => !prevShowConfirmPassword
+    );
   };
 
   return (
@@ -102,6 +110,7 @@ function Register() {
           />
           <button
             className='register_login-show-password-button'
+            type='button'
             onClick={togglePasswordVisibility}
           >
             {showPassword ? (
@@ -118,7 +127,7 @@ function Register() {
             確認密碼
           </label>
           <input
-            type={showPassword ? "text" : "password"}
+            type={showConfirmPassword ? "text" : "password"}
             placeholder='再次輸入密碼'
             {...register("confirmPassword", {
               required: "Password is required",
@@ -126,7 +135,7 @@ function Register() {
                 value: 6,
                 message: "Password must be at least 6 characters",
               },
-              validate: (value) => value === password.current || "密碼不一致",
+              validate: (value) => value === password || "密碼不一致",
             })}
           />
           <button
@@ -139,7 +148,9 @@ function Register() {
               <img src='/eye-show.svg' alt='show password' />
             )}
           </button>
-          {errors.password && <span>{errors.password.message}</span>}
+          {errors.confirmPassword && (
+            <span>{errors.confirmPassword.message}</span>
+          )}
         </div>
 
         <p className='register_remind'>
@@ -147,9 +158,12 @@ function Register() {
         </p>
 
         <button
-          className='register_login-submit'
+          className={
+            email && password
+              ? "register_login-submit-success"
+              : "register_login-submit-disable"
+          }
           type='submit'
-          style={buttonStyle}
           // disabled={!email || !password}
         >
           確定
