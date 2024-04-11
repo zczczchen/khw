@@ -19,7 +19,9 @@ import "./css/reset.css";
 import "./css/layout.css";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(
+    localStorage.getItem("kono-token")
+  );
 
   return (
     <BrowserRouter>
@@ -31,7 +33,10 @@ function App() {
             path='/login'
             element={<Login setIsLoggedIn={setIsLoggedIn} />}
           />
-          <Route path='/register' element={<Register />} />
+          <Route
+            path='/register'
+            element={<Register setIsLoggedIn={setIsLoggedIn} />}
+          />
           <Route path='/counter' element={<Counter />} />
           <Route path='/magazines/:titleId' element={<Magazine />} />
         </Routes>

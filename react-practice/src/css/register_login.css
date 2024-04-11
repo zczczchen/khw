@@ -140,15 +140,6 @@
   text-decoration: none;
 }
 
-.loading-picture {
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transition: 10s;
-}
-
 .register_login-submit-success,
 .register_login-submit-disable {
   width: 100%;

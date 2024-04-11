@@ -1,9 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Loading from "../components/Loading";
 import "../css/register_login.css";
 
-function Register() {
+function Register({ setIsLoggedIn }) {
   const {
     register,
     handleSubmit,
@@ -11,9 +12,14 @@ function Register() {
     watch,
   } = useForm();
 
+  const [loading, setLoading] = React.useState(false);
+
+  const navigate = useNavigate();
+
   const onSubmit = async (data, e) => {
+    setLoading(true);
     e.preventDefault();
-    const url = `https://api-sandbox.thekono.com/KPI2/users/login`;
+    const url = `https://api-sandbox.thekono.com/KPI2/users`;
 
     try {
       const response = await fetch(url, {
@@ -30,15 +36,20 @@ function Register() {
 
       const responseData = await response.json();
 
-      localStorage.setItem("token", responseData.token);
+      localStorage.setItem("kono-token", responseData.token);
 
       if (response.ok) {
-        console.log("Login successful");
+        console.log("Registration successful");
+        localStorage.setItem("kono-token", responseData.token);
+        setIsLoggedIn(responseData.token);
+        navigate("/");
       } else {
         console.error(responseData.error);
       }
     } catch (error) {
       console.error("Error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -46,6 +57,7 @@ function Register() {
   const password = watch("password");
 
   const [showPassword, setShowPassword] = React.useState(false);
+
   const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
 
   const togglePasswordVisibility = (e) => {
@@ -164,11 +176,12 @@ function Register() {
               : "register_login-submit-disable"
           }
           type='submit'
-          // disabled={!email || !password}
+          disabled={loading}
         >
           確定
         </button>
       </form>
+      {loading && <Loading />}
     </div>
   );
 }

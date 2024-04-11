@@ -30,8 +30,8 @@ function Header({ isLoggedIn, setIsLoggedIn }) {
             className='logout-entry'
             to='/'
             onClick={() => {
-              setIsLoggedIn(false);
-              localStorage.removeItem("token");
+              setIsLoggedIn(null);
+              localStorage.removeItem("kono-token");
             }}
           >
             登出

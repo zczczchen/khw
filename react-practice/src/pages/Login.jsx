@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Loading from "../components/Loading";
 import "../css/register_login.css";
 
 function Login({ setIsLoggedIn }) {
@@ -37,9 +38,9 @@ function Login({ setIsLoggedIn }) {
 
       if (response.ok) {
         console.log("Login successful");
-        localStorage.setItem("token", responseData.token);
-        setIsLoggedIn(true);
-        navigate(-1);
+        localStorage.setItem("kono-token", responseData.token);
+        setIsLoggedIn(responseData.token);
+        navigate("/");
       } else {
         console.error(responseData.error);
       }
@@ -138,13 +139,7 @@ function Login({ setIsLoggedIn }) {
           確定
         </button>
       </form>
-      {loading && (
-        <img
-          className='loading-picture'
-          src='/kono-loading.gif'
-          alt='loading'
-        />
-      )}
+      {loading && <Loading />}
     </div>
   );
 }
