@@ -31,11 +31,15 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route
             path='/login'
-            element={<Login setIsLoggedIn={setIsLoggedIn} />}
+            element={
+              <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+            }
           />
           <Route
             path='/register'
-            element={<Register setIsLoggedIn={setIsLoggedIn} />}
+            element={
+              <Register isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+            }
           />
           <Route path='/counter' element={<Counter />} />
           <Route path='/magazines/:titleId' element={<Magazine />} />
