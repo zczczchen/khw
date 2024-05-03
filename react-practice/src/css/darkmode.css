@@ -1,0 +1,40 @@
+.darkmode-wrap {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 100px auto;
+}
+
+.chess-img {
+  margin-top: 15px;
+  width: 88px;
+}
+
+.panel-dark {
+  color: white;
+  background-color: gray;
+  margin: 10px 0;
+  padding: 20px;
+}
+
+.panel-light {
+  color: black;
+  background-color: transparent;
+  margin: 10px 0;
+  padding: 20px;
+}
+
+.button-dark,
+.button-light {
+  margin: 10px 0;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.panel-dark h1,
+.panel-light h1 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}

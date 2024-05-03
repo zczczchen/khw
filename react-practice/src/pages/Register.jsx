@@ -46,8 +46,8 @@ function Register({ isLoggedIn, setIsLoggedIn }) {
         setIsLoggedIn(responseData.token);
         navigate("/");
       } else {
-        console.error(responseData.error);
-        if (responseData.error === "EMAIL_NOT_UNIQUE") {
+        console.error(responseData.code);
+        if (responseData.code === "EMAIL_NOT_UNIQUE") {
           setError("email", { type: "email", message: "Email exists already" });
         }
       }
@@ -76,7 +76,6 @@ function Register({ isLoggedIn, setIsLoggedIn }) {
       (prevShowConfirmPassword) => !prevShowConfirmPassword
     );
   };
-  console.log("render");
 
   if (isLoggedIn) {
     return <Navigate to='/' replace={true} />;

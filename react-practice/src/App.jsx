@@ -14,6 +14,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Counter from "./pages/Counter";
 import Magazine from "./pages/Magazine";
+import DarkMode from "./components/DarkMode";
 
 import "./css/reset.css";
 import "./css/layout.css";
@@ -43,6 +44,7 @@ function App() {
           />
           <Route path='/counter' element={<Counter />} />
           <Route path='/magazines/:titleId' element={<Magazine />} />
+          <Route path='/darkmode' element={<DarkMode />} />
         </Routes>
       </div>
     </BrowserRouter>

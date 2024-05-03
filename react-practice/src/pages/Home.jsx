@@ -11,6 +11,9 @@ function Home() {
       <Link to='/magazines/golf_digest'>
         <button className='magazine-button'>Magazine</button>
       </Link>
+      <Link to='/darkmode'>
+        <button className='darkmode-button'>Dark Mode</button>
+      </Link>
     </main>
   );
 }

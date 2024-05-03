@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Loading from "../components/Loading";
 import "../css/register_login.css";
@@ -36,6 +37,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
       });
 
       const responseData = await response.json();
+      console.log(responseData);
 
       if (response.ok) {
         console.log("Login successful");
@@ -43,10 +45,10 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
         setIsLoggedIn(responseData.token);
         navigate("/");
       } else {
-        console.error(responseData.error);
-        if (responseData.error === "EMAIL_NOT_FOUND") {
+        console.error(responseData.code);
+        if (responseData.code === "EMAIL_NOT_FOUND") {
           setError("email", { type: "email", message: "Email not found" });
-        } else if (responseData.error === "PASSWORD_INCORRECT") {
+        } else if (responseData.code === "PASSWORD_ERROR") {
           setError("password", {
             type: "password",
             message: "Incorrect password",
@@ -71,7 +73,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
   };
 
   if (isLoggedIn) {
-    navigate("/");
+    return <Navigate to='/' replace={true} />;
   } else {
     return (
       <div className='register_login-wrap'>
