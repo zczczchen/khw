@@ -47,10 +47,8 @@ function Panel({ title, children }) {
 }
 
 function Button({ children, onClick }) {
-  const theme = useContext(ThemeContext);
-  const className = "button-" + theme;
   return (
-    <button className={className} onClick={onClick}>
+    <button className='button' onClick={onClick}>
       {children}
     </button>
   );

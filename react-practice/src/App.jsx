@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import {
@@ -14,40 +14,38 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Counter from "./pages/Counter";
 import Magazine from "./pages/Magazine";
-import DarkMode from "./components/DarkMode";
+import DarkMode from "./pages/DarkMode";
+import CurrentUserContext from "./components/CurrentUserContext";
 
 import "./css/reset.css";
 import "./css/layout.css";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = React.useState(
+  const [isLoggedIn, setIsLoggedIn] = useState(
     localStorage.getItem("kono-token")
   );
 
   return (
-    <BrowserRouter>
-      <div className='wrap'>
-        <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route
-            path='/login'
-            element={
-              <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-            }
-          />
-          <Route
-            path='/register'
-            element={
-              <Register isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-            }
-          />
-          <Route path='/counter' element={<Counter />} />
-          <Route path='/magazines/:titleId' element={<Magazine />} />
-          <Route path='/darkmode' element={<DarkMode />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <CurrentUserContext.Provider
+      value={{
+        isLoggedIn,
+        setIsLoggedIn,
+      }}
+    >
+      <BrowserRouter>
+        <div className='wrap'>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/counter' element={<Counter />} />
+            <Route path='/magazines/:titleId' element={<Magazine />} />
+            <Route path='/darkmode' element={<DarkMode />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </CurrentUserContext.Provider>
   );
 }
 

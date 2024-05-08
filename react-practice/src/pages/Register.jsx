@@ -1,11 +1,13 @@
-import React, { useCallback } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import { useState, useContext } from "react";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Loading from "../components/Loading";
+import CurrentUserContext from "../components/CurrentUserContext";
 import "../css/register_login.css";
 
-function Register({ isLoggedIn, setIsLoggedIn }) {
+function Register() {
+  const { isLoggedIn, setIsLoggedIn } = useContext(CurrentUserContext);
+
   const {
     register,
     handleSubmit,
@@ -14,7 +16,7 @@ function Register({ isLoggedIn, setIsLoggedIn }) {
     watch,
   } = useForm();
 
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -61,9 +63,9 @@ function Register({ isLoggedIn, setIsLoggedIn }) {
   const email = watch("email");
   const password = watch("password");
 
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const togglePasswordVisibility = (e) => {
     e.preventDefault();

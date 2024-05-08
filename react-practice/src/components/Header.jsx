@@ -1,10 +1,14 @@
-import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+import CurrentUserContext from "../components/CurrentUserContext";
 import "../css/header.css";
 
-function Header({ isLoggedIn, setIsLoggedIn }) {
+function Header() {
+  const { isLoggedIn, setIsLoggedIn } = useContext(CurrentUserContext);
+
   const isTabletOrMobile = useMediaQuery({ query: "(max-width: 425px)" });
+
   return (
     <header className='header'>
       <Link className='logo-link' to='/'>
