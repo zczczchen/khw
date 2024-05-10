@@ -1,3 +1,13 @@
+https://www-sandbox.thekono.com/?home_source=logo
+
+0322 作業
+提交表單後：出現 loading 的圖示，此時提交按鈕 disable
+登入：成功時，link 到其他 page，navbar 顯示登出 link
+登出：清除 token，navbar 重新顯示登入＆註冊 link
+navbar
+－未登入：顯示登入＆註冊 link
+－已登入（有 token 時）：顯示登出 link
+
 https://www-sandbox.thekono.com/magazines/golf_digest
 425 / 1024
 一行 3 個 / 一行 4 個 / 一行 6 個

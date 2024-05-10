@@ -1,39 +1,51 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 // import {
 //   Route,
 //   RouterProvider,
 //   createBrowserRouter,
 //   createRoutesFromElements,
 // } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
+
+import Header from "./components/Header";
 import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import Counter from "./pages/Counter";
 import Magazine from "./pages/Magazine";
+import DarkMode from "./pages/DarkMode";
+import CurrentUserContext from "./components/CurrentUserContext";
+
 import "./css/reset.css";
 import "./css/layout.css";
 
 function App() {
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 425px)" });
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    localStorage.getItem("kono-token")
+  );
 
   return (
-    <BrowserRouter>
-      <header className='header'>
-        <nav className='nav'>
-          <Link className='logo-link' to='/'>
-            {isTabletOrMobile ? (
-              <img className='logo-img' src='/logo_s.svg' alt='Logo' />
-            ) : (
-              <img className='logo-img' src='/logo.svg' alt='Logo' />
-            )}
-          </Link>
-        </nav>
-      </header>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/counter' element={<Counter />} />
-        <Route path='/magazines/:titleId' element={<Magazine />} />
-      </Routes>
-    </BrowserRouter>
+    <CurrentUserContext.Provider
+      value={{
+        isLoggedIn,
+        setIsLoggedIn,
+      }}
+    >
+      <BrowserRouter>
+        <div className='wrap'>
+          <Header />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
+            <Route path='/counter' element={<Counter />} />
+            <Route path='/magazines/:titleId' element={<Magazine />} />
+            <Route path='/darkmode' element={<DarkMode />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </CurrentUserContext.Provider>
   );
 }
 
