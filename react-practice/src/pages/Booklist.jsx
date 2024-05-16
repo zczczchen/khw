@@ -1,23 +1,25 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import "../css/library.css";
 
 function Booklist(props) {
+  const category = props.category;
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     async function getBooks() {
       const response = await fetch(
-        `https://api-sandbox.thekono.com/KPI2/categories/${props.categories.id}/magazines?[book_list_id=aycr]`
+        `https://api-sandbox.thekono.com/KPI2/categories/${category.id}/magazines?[book_list_id=aycr]`
       );
       const result = await response.json();
-      setBooks(result.categories);
+      setBooks(result);
     }
     getBooks();
   }, []);
 
   return (
     <div className='library-wrap'>
-      <h2 className='category-name'>{props}</h2>
+      <h2 className='category-name'>{category.name}</h2>
       <hr className='books-line' />
       <div className='books-wrap'>
         {books.map((book) => {
