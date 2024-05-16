@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Counter from "./pages/Counter";
+import Library from "./pages/Library";
 import Magazine from "./pages/Magazine";
 import DarkMode from "./pages/DarkMode";
 import CurrentUserContext from "./components/CurrentUserContext";
@@ -40,6 +41,7 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route path='/counter' element={<Counter />} />
+            <Route path='/library' element={<Library />} />
             <Route path='/magazines/:titleId' element={<Magazine />} />
             <Route path='/darkmode' element={<DarkMode />} />
           </Routes>
