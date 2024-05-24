@@ -44,6 +44,7 @@
 
 .books {
   width: 100%;
+  position: relative;
 }
 
 .book-cover {

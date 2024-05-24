@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "../css/library.css";
+import Follow from "../components/Follow";
 
 function Booklist(props) {
   const category = props.category;
@@ -34,6 +35,7 @@ function Booklist(props) {
                 alt='book-cover'
               />
               <h3 className='book-title'>{issue}</h3>
+              <Follow />
             </div>
           );
         })}
