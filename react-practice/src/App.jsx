@@ -22,9 +22,10 @@ import "./css/reset.css";
 import "./css/layout.css";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem("kono-token")
-  );
+  const [isLoggedIn, setIsLoggedIn] = useState({
+    konoToken: localStorage.getItem("kono-token"),
+    konoKid: localStorage.getItem("kono-kid"),
+  });
 
   return (
     <CurrentUserContext.Provider

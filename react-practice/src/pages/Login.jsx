@@ -44,6 +44,7 @@ function Login() {
       if (response.ok) {
         console.log("Login successful");
         localStorage.setItem("kono-token", responseData.token);
+        localStorage.setItem("kono-kid", responseData.kid);
         setIsLoggedIn(responseData.token);
         navigate("/");
       } else {
@@ -74,7 +75,7 @@ function Login() {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-  if (isLoggedIn) {
+  if (isLoggedIn.konoToken) {
     return <Navigate to='/' replace={true} />;
   } else {
     return (

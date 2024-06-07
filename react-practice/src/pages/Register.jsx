@@ -79,7 +79,7 @@ function Register() {
     );
   };
 
-  if (isLoggedIn) {
+  if (isLoggedIn.konoToken) {
     return <Navigate to='/' replace={true} />;
   } else {
     return (
