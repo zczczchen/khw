@@ -43,9 +43,12 @@ function Login() {
 
       if (response.ok) {
         console.log("Login successful");
-        localStorage.setItem("kono-token", responseData.token);
-        localStorage.setItem("kono-kid", responseData.kid);
-        setIsLoggedIn(responseData.token);
+        localStorage.setItem("konoToken", responseData.token);
+        localStorage.setItem("konoKid", responseData.kid);
+        setIsLoggedIn({
+          konoToken: responseData.token,
+          konoKid: responseData.kid,
+        });
         navigate("/");
       } else {
         console.error(responseData.code);

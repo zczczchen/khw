@@ -35,7 +35,7 @@ function Header() {
             to='/'
             onClick={() => {
               setIsLoggedIn({});
-              localStorage.removeItem("kono-token");
+              localStorage.removeItem("konoToken");
             }}
           >
             登出

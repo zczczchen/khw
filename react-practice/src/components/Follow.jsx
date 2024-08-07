@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import CurrentUserContext from "../components/CurrentUserContext";
 import "../css/follow.css";
 
-function Follow() {
+function Follow(props) {
   const { isLoggedIn } = useContext(CurrentUserContext);
 
   const [isFollowed, setIsFollowed] = useState(false);
@@ -12,18 +12,19 @@ function Follow() {
   useEffect(() => {
     async function getFollowed() {
       const response = await fetch(
-        `https://api-sandbox.thekono.com/KPI2/users/${isLoggedIn.konoKid}/followed_titles`
+        `https://api-sandbox.thekono.com/KPI2/users/${isLoggedIn.konoKid}/followed_titles`,
+        { headers: { "X-Kono-Token": isLoggedIn.konoToken } }
       );
       const result = await response.json();
 
       console.log(result);
 
-      setFollowedTitle(result[followed_titles]);
+      setFollowedTitle(result.followed_titles);
 
-      console.log(result[followed_titles]);
+      console.log(result.followed_titles);
 
-      for (let i = 0; i < result.length; i++) {
-        if (result[i]) {
+      for (let i = 0; i < result.followed_titles.length; i++) {
+        if (result.followed_titles[i] === props.title) {
           setIsFollowed(true);
         }
       }

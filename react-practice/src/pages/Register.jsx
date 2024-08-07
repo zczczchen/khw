@@ -40,12 +40,15 @@ function Register() {
 
       const responseData = await response.json();
 
-      localStorage.setItem("kono-token", responseData.token);
+      localStorage.setItem("konoToken", responseData.token);
 
       if (response.ok) {
         console.log("Registration successful");
-        localStorage.setItem("kono-token", responseData.token);
-        setIsLoggedIn(responseData.token);
+        localStorage.setItem("konoToken", responseData.token);
+        setIsLoggedIn({
+          konoToken: responseData.token,
+          konoKid: responseData.kid,
+        });
         navigate("/");
       } else {
         console.error(responseData.code);

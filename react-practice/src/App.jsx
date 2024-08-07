@@ -23,8 +23,8 @@ import "./css/layout.css";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState({
-    konoToken: localStorage.getItem("kono-token"),
-    konoKid: localStorage.getItem("kono-kid"),
+    konoToken: localStorage.getItem("konoToken"),
+    konoKid: localStorage.getItem("konoKid"),
   });
 
   return (

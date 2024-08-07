@@ -10,7 +10,7 @@ function Booklist(props) {
   useEffect(() => {
     async function getBooks() {
       const response = await fetch(
-        `https://api-sandbox.thekono.com/KPI2/categories/${category.id}/magazines?[book_list_id=aycr]`
+        `https://api-sandbox.thekono.com/KPI2/categories/${category.id}/magazines?book_list_id=aycr`
       );
       const result = await response.json();
       setBooks(result);
@@ -27,6 +27,7 @@ function Booklist(props) {
           const bid = book.bid;
           const covers = book.covers;
           const issue = book.issue;
+          const title = book.title;
           return (
             <div key={bid} className='books'>
               <img
@@ -35,7 +36,7 @@ function Booklist(props) {
                 alt='book-cover'
               />
               <h3 className='book-title'>{issue}</h3>
-              <Follow />
+              <Follow title={title} />
             </div>
           );
         })}
