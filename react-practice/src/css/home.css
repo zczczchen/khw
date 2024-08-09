@@ -25,6 +25,25 @@
   border: 20px double slateblue;
 }
 
+.library-button {
+  font-size: 50px;
+  margin: 25px auto;
+  padding: 50px 60px;
+  background-color: slategray;
+  color: white;
+  font-weight: bold;
+  border: 20px double transparent;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: border 0.5s;
+}
+
+.library-button:hover {
+  color: slategray;
+  background-color: transparent;
+  border: 20px double slategray;
+}
+
 .magazine-button {
   font-size: 50px;
   margin: 25px auto;

@@ -1,0 +1,10 @@
+.follow-img {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

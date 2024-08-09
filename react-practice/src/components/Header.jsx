@@ -19,7 +19,7 @@ function Header() {
         )}
       </Link>
 
-      {!isLoggedIn ? (
+      {!isLoggedIn.konoToken ? (
         <nav className='nav'>
           <Link className='login-entry' to='/login'>
             登入
@@ -34,8 +34,8 @@ function Header() {
             className='logout-entry'
             to='/'
             onClick={() => {
-              setIsLoggedIn(null);
-              localStorage.removeItem("kono-token");
+              setIsLoggedIn({});
+              localStorage.removeItem("konoToken");
             }}
           >
             登出

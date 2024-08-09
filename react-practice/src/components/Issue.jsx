@@ -1,11 +1,12 @@
 import React from "react";
+import { useState, useEffect } from "react";
 import "../css/reset.css";
 import "../css/magazine.css";
 
 function Issue(props) {
-  const [issues, setIssues] = React.useState([]);
+  const [issues, setIssues] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     async function getIssues() {
       const response = await fetch(
         `https://api-sandbox.thekono.com/KPI2/titles/${props.titleId}/years/${props.year}/magazines`

@@ -1,8 +1,9 @@
 import React from "react";
+import { useState } from "react";
 import "../css/counter.css";
 
 function Counter() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
 
   function minusOne() {
     setCount((prevCount) => prevCount - 1);

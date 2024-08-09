@@ -43,8 +43,12 @@ function Login() {
 
       if (response.ok) {
         console.log("Login successful");
-        localStorage.setItem("kono-token", responseData.token);
-        setIsLoggedIn(responseData.token);
+        localStorage.setItem("konoToken", responseData.token);
+        localStorage.setItem("konoKid", responseData.kid);
+        setIsLoggedIn({
+          konoToken: responseData.token,
+          konoKid: responseData.kid,
+        });
         navigate("/");
       } else {
         console.error(responseData.code);
@@ -74,7 +78,7 @@ function Login() {
     setShowPassword((prevShowPassword) => !prevShowPassword);
   };
 
-  if (isLoggedIn) {
+  if (isLoggedIn.konoToken) {
     return <Navigate to='/' replace={true} />;
   } else {
     return (
