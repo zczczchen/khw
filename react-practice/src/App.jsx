@@ -16,6 +16,7 @@ import Counter from "./pages/Counter";
 import Library from "./pages/Library";
 import Magazine from "./pages/Magazine";
 import DarkMode from "./pages/DarkMode";
+import Food from "./pages/Food";
 import CurrentUserContext from "./components/CurrentUserContext";
 
 import "./css/reset.css";
@@ -45,6 +46,7 @@ function App() {
             <Route path='/library' element={<Library />} />
             <Route path='/magazines/:titleId' element={<Magazine />} />
             <Route path='/darkmode' element={<DarkMode />} />
+            <Route path='/food' element={<Food />} />
           </Routes>
         </div>
       </BrowserRouter>

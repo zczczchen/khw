@@ -81,3 +81,22 @@
   background-color: transparent;
   border: 20px double darkred;
 }
+
+.food-button {
+  font-size: 50px;
+  margin: 25px auto;
+  padding: 50px 90px;
+  background-color: teal;
+  color: white;
+  font-weight: bold;
+  border: 20px double transparent;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: border 0.5s;
+}
+
+.food-button:hover {
+  color: teal;
+  background-color: transparent;
+  border: 20px double teal;
+}
