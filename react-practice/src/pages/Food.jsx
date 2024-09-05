@@ -11,19 +11,15 @@ const snacks = [
   "雞肉飯 🐓",
   "滷味 🍢",
   "水餃 🥟",
-  "蝦捲 🍤",
   "早午餐 🍳",
-  "肉圓 🫓",
   "湯麵 🍜",
   "咖哩 🍛",
   "越式 🇻🇳",
   "自助餐 🍱",
   "健康餐盒 🥗",
-  "燉飯 🥘",
   "泰式 🇹🇭",
-  "蚵仔煎 🦪",
-  "滷肉飯 🍚",
   "義大利麵 🍝",
+  "韓式 🇰🇷",
 ];
 const drinks = [
   "坪林手 🌱",
@@ -31,7 +27,6 @@ const drinks = [
   "再睡5分鐘 🦥",
   "烏弄 🫖",
   "得正 🉐",
-  "十盛 🔟",
   "五桐號 5️⃣",
   "龜記 🐢",
   "一沐日 🎋",
@@ -41,6 +36,7 @@ const drinks = [
   "可不可 🉑",
   "天仁茗茶 🍵",
   "威爾貝克 ☕️",
+  "白開水 💧",
 ];
 
 function Food() {
@@ -48,7 +44,7 @@ function Food() {
   const [recommendedDrink, setRecommendedDrink] = useState("");
   const [recentSnacks, setRecentSnacks] = useState([]);
   const [recentDrinks, setRecentDrinks] = useState([]);
-  const MAX_RECENT_ITEMS = 3;
+  const MAX_RECENT_ITEMS = 2;
 
   useEffect(() => {
     try {
@@ -138,11 +134,10 @@ function Food() {
             ))}
           </div>
         </div>
-
-        <button className='reset-food-button' onClick={resetRecommendations}>
-          Clear All Records
-        </button>
       </div>
+      <button className='reset-food-button' onClick={resetRecommendations}>
+        Clear All Records
+      </button>
     </div>
   );
 }
