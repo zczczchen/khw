@@ -1,13 +1,11 @@
 .foods-wrap {
   text-align: center;
   margin: 50px auto;
-  padding: 20px;
 }
 
 .foods-wrap h1 {
   font-size: 50px;
   color: teal;
-  margin-bottom: 100px;
 }
 
 .food-wrap {
@@ -28,7 +26,7 @@
 
   .snack-wrap,
   .drink-wrap {
-    margin: 0 100px;
+    margin: 0 50px;
     width: 350px;
     display: flex;
     flex-direction: column;
@@ -52,31 +50,15 @@
 
   .snack-wrap,
   .drink-wrap {
-    width: 90%;
-    margin: 20px auto;
-  }
-}
-
-.wheel {
-  margin-bottom: 50px;
-  width: 250px;
-  height: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media screen and (max-width: 767px) {
-  .wheel {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    margin: 10px auto;
   }
 }
 
 .choice-food-button {
   font-size: 20px;
   padding: 15px 30px;
-  margin-top: 70px;
+  margin-top: 50px;
   cursor: pointer;
   background: teal;
   color: white;
@@ -127,7 +109,7 @@
   color: grey;
   font-size: 15px;
   padding: 15px 30px;
-  margin: 50px auto;
+  margin: 70px auto;
   border: 10px double grey;
   border-radius: 30px;
   cursor: pointer;
