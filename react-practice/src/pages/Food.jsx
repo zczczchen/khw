@@ -1,105 +1,51 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { SpinWheel } from "spin-wheel-game";
 import "../css/food.css";
 
 const snacks = [
-  "涼麵 🥒 ",
-  "乾拌麵 🌶️",
-  "生魚飯 🍣",
-  "烤餅 🥙",
-  "漢堡 🍔",
-  "雞肉飯 🐓",
-  "滷味 🍢",
-  "水餃 🥟",
-  "早午餐 🍳",
-  "湯麵 🍜",
-  "咖哩 🍛",
-  "越式 🇻🇳",
-  "自助餐 🍱",
-  "健康餐盒 🥗",
-  "泰式 🇹🇭",
-  "義大利麵 🍝",
-  "韓式 🇰🇷",
+  { segmentText: "涼麵 🥒", segColor: "#008080" },
+  { segmentText: "乾拌麵 🌶️", segColor: "#70a494" },
+  { segmentText: "生魚飯 🍣", segColor: "#008080" },
+  { segmentText: "義大利麵 🍝", segColor: "#70a494" },
+  { segmentText: "漢堡 🍔", segColor: "#008080" },
+  { segmentText: "雞肉飯 🐓", segColor: "#70a494" },
+  { segmentText: "滷味 🍢", segColor: "#008080" },
+  { segmentText: "水餃 🥟", segColor: "#70a494" },
+  { segmentText: "早午餐 🍳", segColor: "#008080" },
+  { segmentText: "湯麵 🍜", segColor: "#70a494" },
+  { segmentText: "咖哩 🍛", segColor: "##008080" },
+  { segmentText: "越式 🇻🇳", segColor: "#70a494" },
+  { segmentText: "自助餐 🍱", segColor: "##008080" },
+  { segmentText: "健康餐盒 🥗", segColor: "#70a494" },
+  { segmentText: "泰式 🇹🇭", segColor: "##008080" },
+  { segmentText: "韓式 🇰🇷", segColor: "#70a494" },
 ];
+
 const drinks = [
-  "坪林手 🌱",
-  "50嵐 🧋",
-  "再睡5分鐘 🦥",
-  "烏弄 🫖",
-  "得正 🉐",
-  "五桐號 5️⃣",
-  "龜記 🐢",
-  "一沐日 🎋",
-  "一手私藏 🥤",
-  "鶴茶樓 🦩",
-  "麻古 🥁",
-  "可不可 🉑",
-  "天仁茗茶 🍵",
-  "威爾貝克 ☕️",
-  "白開水 💧",
+  { segmentText: "坪林手 🌱", segColor: "#008080" },
+  { segmentText: "50嵐 🧋", segColor: "#70a494" },
+  { segmentText: "再睡5分鐘 🦥", segColor: "#008080" },
+  { segmentText: "烏弄 🫖", segColor: "#70a494" },
+  { segmentText: "得正 🉐", segColor: "#008080" },
+  { segmentText: "五桐號 5️⃣", segColor: "#70a494" },
+  { segmentText: "龜記 🐢", segColor: "#008080" },
+  { segmentText: "一沐日 🎋", segColor: "#70a494" },
+  { segmentText: "一手私藏 🥤", segColor: "#008080" },
+  { segmentText: "鶴茶樓 🦩", segColor: "#70a494" },
+  { segmentText: "麻古 🥁", segColor: "#008080" },
+  { segmentText: "可不可 🉑", segColor: "#70a494" },
+  { segmentText: "天仁茗茶 🍵", segColor: "#008080" },
+  { segmentText: "威爾貝克 ☕️", segColor: "#70a494" },
 ];
 
 function Food() {
   const [recommendedSnack, setRecommendedSnack] = useState("");
   const [recommendedDrink, setRecommendedDrink] = useState("");
-  const [recentSnacks, setRecentSnacks] = useState([]);
-  const [recentDrinks, setRecentDrinks] = useState([]);
-  const MAX_RECENT_ITEMS = 2;
-
-  useEffect(() => {
-    try {
-      const savedSnacks = JSON.parse(localStorage.getItem("recentSnacks"));
-      const savedDrinks = JSON.parse(localStorage.getItem("recentDrinks"));
-      if (savedSnacks) {
-        setRecentSnacks(savedSnacks);
-      }
-      if (savedDrinks) {
-        setRecentDrinks(savedDrinks);
-      }
-    } catch (error) {
-      console.error("Failed to load recent items from localStorage", error);
-    }
-  }, []);
-
-  const getRandomSnack = () => {
-    const randomIndex = Math.floor(Math.random() * snacks.length);
-    const snack = snacks[randomIndex];
-    setRecommendedSnack(snack);
-    updateRecentSnacks(snack);
-  };
-
-  const getRandomDrink = () => {
-    const randomIndex = Math.floor(Math.random() * drinks.length);
-    const drink = drinks[randomIndex];
-    setRecommendedDrink(drink);
-    updateRecentDrinks(drink);
-  };
-
-  const updateRecentSnacks = (snack) => {
-    const updatedSnacks = [
-      snack,
-      ...recentSnacks.filter((item) => item !== snack),
-    ].slice(0, MAX_RECENT_ITEMS);
-    setRecentSnacks(updatedSnacks);
-    localStorage.setItem("recentSnacks", JSON.stringify(updatedSnacks));
-  };
-
-  const updateRecentDrinks = (drink) => {
-    const updatedDrinks = [
-      drink,
-      ...recentDrinks.filter((item) => item !== drink),
-    ].slice(0, MAX_RECENT_ITEMS);
-    setRecentDrinks(updatedDrinks);
-    localStorage.setItem("recentDrinks", JSON.stringify(updatedDrinks));
-  };
 
   const resetRecommendations = () => {
     setRecommendedSnack("");
     setRecommendedDrink("");
-    setRecentSnacks([]);
-    setRecentDrinks([]);
-    localStorage.removeItem("recentSnacks");
-    localStorage.removeItem("recentDrinks");
   };
 
   return (
@@ -108,31 +54,43 @@ function Food() {
 
       <div className='food-wrap'>
         <div className='snack-wrap'>
-          <button className='choice-food-button' onClick={getRandomSnack}>
-            ✨ Food Inspiration ✨
-          </button>
+          <SpinWheel
+            segments={snacks}
+            onFinished={(selectedSnack) => {
+              setRecommendedSnack(selectedSnack);
+            }}
+            primaryColor='#008080'
+            contrastColor='#ffffff'
+            buttonText='Go'
+            isOnlyOnce={false}
+            size={250}
+            upDuration={100}
+            downDuration={600}
+            fontFamily='Arial'
+            arrowLocation='top'
+            showTextOnSpin={false}
+          />
           <p className='show-food'>{recommendedSnack}</p>
-          <div className='recent-food-tags'>
-            {recentSnacks.map((snack, index) => (
-              <span key={index} className='recent-food-tag'>
-                {snack}
-              </span>
-            ))}
-          </div>
         </div>
 
         <div className='drink-wrap'>
-          <button className='choice-food-button' onClick={getRandomDrink}>
-            ✨ Drink Inspiration ✨
-          </button>
+          <SpinWheel
+            segments={drinks}
+            onFinished={(selectedDrink) => {
+              setRecommendedDrink(selectedDrink);
+            }}
+            primaryColor='#008080'
+            contrastColor='#ffffff'
+            buttonText='Go'
+            isOnlyOnce={false}
+            size={250}
+            upDuration={100}
+            downDuration={600}
+            fontFamily='Arial'
+            arrowLocation='top'
+            showTextOnSpin={false}
+          />
           <p className='show-food'>{recommendedDrink}</p>
-          <div className='recent-food-tags'>
-            {recentDrinks.map((drink, index) => (
-              <span key={index} className='recent-food-tag'>
-                {drink}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
       <button className='reset-food-button' onClick={resetRecommendations}>

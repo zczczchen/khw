@@ -6,6 +6,7 @@
 .foods-wrap h1 {
   font-size: 50px;
   color: teal;
+  margin-bottom: 40px;
 }
 
 .food-wrap {
@@ -13,94 +14,30 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 50px;
+  gap: 50px;
+  font-size: 30px;
   color: teal;
 }
 
 @media screen and (min-width: 768px) {
   .food-wrap {
     flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .snack-wrap,
-  .drink-wrap {
-    margin: 0 50px;
-    width: 350px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .recent-food-tags {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-wrap: nowrap;
-    overflow: hidden;
+    justify-content: space-evenly;
+    align-items: flex-start;
   }
 }
 
-@media screen and (max-width: 767px) {
-  .food-wrap {
-    flex-direction: column;
-  }
-
-  .snack-wrap,
-  .drink-wrap {
-    width: 100%;
-    margin: 10px auto;
-  }
-}
-
-.choice-food-button {
-  font-size: 20px;
-  padding: 15px 30px;
-  margin-top: 50px;
-  cursor: pointer;
-  background: teal;
-  color: white;
-  border: 10px double transparent;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.choice-food-button:hover {
-  color: teal;
-  background-color: transparent;
-  border: 10px double teal;
+.snack-wrap,
+.drink-wrap {
+  width: auto;
+  max-width: 320px;
+  padding: 20px;
 }
 
 .show-food {
   margin-top: 50px;
   height: 50px;
   color: teal;
-}
-
-.recent-food-tags {
-  margin-top: 40px;
-  height: 60px;
-  width: 100%;
-  overflow-x: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.recent-food-tag {
-  background-color: teal;
-  opacity: 0.5;
-  color: white;
-  font-size: 15px;
-  padding: 10px 20px;
-  margin: 10px;
-  border-radius: 5px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .reset-food-button {
