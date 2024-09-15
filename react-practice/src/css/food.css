@@ -15,7 +15,6 @@
   align-items: center;
   justify-content: center;
   gap: 50px;
-  font-size: 30px;
   color: teal;
 }
 
@@ -24,20 +23,21 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
+    gap: 80px;
   }
 }
 
 .snack-wrap,
 .drink-wrap {
-  width: auto;
-  max-width: 320px;
   padding: 20px;
+  font-size: 20px;
 }
 
 .show-food {
   margin-top: 50px;
   height: 50px;
   color: teal;
+  font-size: 50px;
 }
 
 .reset-food-button {
@@ -46,7 +46,7 @@
   color: grey;
   font-size: 15px;
   padding: 15px 30px;
-  margin: 70px auto;
+  margin: 60px auto;
   border: 10px double grey;
   border-radius: 30px;
   cursor: pointer;

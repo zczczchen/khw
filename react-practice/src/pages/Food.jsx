@@ -1,24 +1,24 @@
 import React from "react";
 import { useState } from "react";
-import { SpinWheel } from "spin-wheel-game";
+import { SpinWheel } from "../components/Wheel";
 import "../css/food.css";
 
 const snacks = [
   { segmentText: "涼麵 🥒", segColor: "#008080" },
   { segmentText: "乾拌麵 🌶️", segColor: "#70a494" },
   { segmentText: "生魚飯 🍣", segColor: "#008080" },
-  { segmentText: "義大利麵 🍝", segColor: "#70a494" },
+  { segmentText: "中東料理 🥙", segColor: "#70a494" },
   { segmentText: "漢堡 🍔", segColor: "#008080" },
   { segmentText: "雞肉飯 🐓", segColor: "#70a494" },
   { segmentText: "滷味 🍢", segColor: "#008080" },
   { segmentText: "水餃 🥟", segColor: "#70a494" },
   { segmentText: "早午餐 🍳", segColor: "#008080" },
   { segmentText: "湯麵 🍜", segColor: "#70a494" },
-  { segmentText: "咖哩 🍛", segColor: "##008080" },
+  { segmentText: "咖哩 🍛", segColor: "#008080" },
   { segmentText: "越式 🇻🇳", segColor: "#70a494" },
-  { segmentText: "自助餐 🍱", segColor: "##008080" },
-  { segmentText: "健康餐盒 🥗", segColor: "#70a494" },
-  { segmentText: "泰式 🇹🇭", segColor: "##008080" },
+  { segmentText: "自助餐 🍱", segColor: "#008080" },
+  { segmentText: "健康餐 🥗", segColor: "#70a494" },
+  { segmentText: "泰式 🇹🇭", segColor: "#008080" },
   { segmentText: "韓式 🇰🇷", segColor: "#70a494" },
 ];
 
@@ -63,12 +63,13 @@ function Food() {
             contrastColor='#ffffff'
             buttonText='Go'
             isOnlyOnce={false}
-            size={250}
+            size={180}
             upDuration={100}
             downDuration={600}
             fontFamily='Arial'
             arrowLocation='top'
             showTextOnSpin={false}
+            isSpinSound={false}
           />
           <p className='show-food'>{recommendedSnack}</p>
         </div>
@@ -83,12 +84,13 @@ function Food() {
             contrastColor='#ffffff'
             buttonText='Go'
             isOnlyOnce={false}
-            size={250}
+            size={180}
             upDuration={100}
             downDuration={600}
             fontFamily='Arial'
             arrowLocation='top'
             showTextOnSpin={false}
+            isSpinSound={false}
           />
           <p className='show-food'>{recommendedDrink}</p>
         </div>
