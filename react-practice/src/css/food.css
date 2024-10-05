@@ -1,0 +1,61 @@
+.foods-wrap {
+  text-align: center;
+  margin: 50px auto;
+}
+
+.foods-wrap h1 {
+  font-size: 50px;
+  color: teal;
+  margin-bottom: 40px;
+}
+
+.food-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  color: teal;
+}
+
+@media screen and (min-width: 768px) {
+  .food-wrap {
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    gap: 80px;
+  }
+}
+
+.snack-wrap,
+.drink-wrap {
+  padding: 20px;
+  font-size: 20px;
+}
+
+.show-food {
+  margin-top: 50px;
+  height: 50px;
+  color: teal;
+  font-size: 50px;
+}
+
+.reset-food-button {
+  background-color: transparent;
+  opacity: 0.8;
+  color: grey;
+  font-size: 15px;
+  padding: 15px 30px;
+  margin: 60px auto;
+  border: 10px double grey;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+}
+
+.reset-food-button:hover {
+  color: white;
+  background-color: grey;
+  border: 10px double transparent;
+}

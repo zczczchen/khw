@@ -17,6 +17,9 @@ function Home() {
       <Link to='/darkmode'>
         <button className='darkmode-button'>Dark Mode</button>
       </Link>
+      <Link to='/food'>
+        <button className='food-button'>Food</button>
+      </Link>
     </main>
   );
 }
