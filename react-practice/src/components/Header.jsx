@@ -13,9 +13,17 @@ function Header() {
     <header className='header'>
       <Link className='logo-link' to='/'>
         {isTabletOrMobile ? (
-          <img className='logo-img' src='/logo_s.svg' alt='Logo' />
+          <img
+            className='logo-img'
+            src={`${import.meta.env.BASE_URL}images/logo_s.svg`}
+            alt='Logo'
+          />
         ) : (
-          <img className='logo-img' src='/logo.svg' alt='Logo' />
+          <img
+            className='logo-img'
+            src={`${import.meta.env.BASE_URL}images/logo.svg`}
+            alt='Logo'
+          />
         )}
       </Link>
 

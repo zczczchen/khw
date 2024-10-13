@@ -139,9 +139,15 @@ function Register() {
               onClick={togglePasswordVisibility}
             >
               {showPassword ? (
-                <img src='/eye-hide.svg' alt='hide password' />
+                <img
+                  src={`${import.meta.env.BASE_URL}images/eye-hide.svg`}
+                  alt='hide password'
+                />
               ) : (
-                <img src='/eye-show.svg' alt='show password' />
+                <img
+                  src={`${import.meta.env.BASE_URL}images/eye-show.svg`}
+                  alt='show password'
+                />
               )}
             </button>
             {errors.password && <span>{errors.password.message}</span>}
@@ -168,9 +174,15 @@ function Register() {
               onClick={toggleConfirmPasswordVisibility}
             >
               {showConfirmPassword ? (
-                <img src='/eye-hide.svg' alt='hide password' />
+                <img
+                  src={`${import.meta.env.BASE_URL}images/eye-hide.svg`}
+                  alt='hide password'
+                />
               ) : (
-                <img src='/eye-show.svg' alt='show password' />
+                <img
+                  src={`${import.meta.env.BASE_URL}images/eye-show.svg`}
+                  alt='show password'
+                />
               )}
             </button>
             {errors.confirmPassword && (

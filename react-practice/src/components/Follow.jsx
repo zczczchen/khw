@@ -39,7 +39,7 @@ function Follow(props) {
           <div className='follow' onClick={() => alert("Login and follow")}>
             <img
               className='follow-img'
-              src='/follow-icon.svg'
+              src={`${import.meta.env.BASE_URL}images/follow-icon.svg`}
               alt='unfollowed'
             />
           </div>
@@ -75,13 +75,15 @@ function Follow(props) {
             {isFollowed ? (
               <img
                 className='follow-img'
-                src='/follow-icon-followed.svg'
+                src={`${
+                  import.meta.env.BASE_URL
+                }images/follow-icon-followed.svg`}
                 alt='followed'
               />
             ) : (
               <img
                 className='follow-img'
-                src='/follow-icon.svg'
+                src={`${import.meta.env.BASE_URL}images/follow-icon.svg`}
                 alt='unfollowed'
               />
             )}

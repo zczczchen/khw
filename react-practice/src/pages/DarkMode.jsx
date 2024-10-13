@@ -12,13 +12,13 @@ export default function DarkMode() {
           {theme === "dark" ? (
             <img
               className='chess-img'
-              src='/chess-knight-regular.svg'
+              src={`${import.meta.env.BASE_URL}images/chess-knight-regular.svg`}
               alt='chess'
             />
           ) : (
             <img
               className='chess-img'
-              src='/chess-knight-solid.svg'
+              src={`${import.meta.env.BASE_URL}images/chess-knight-solid.svg`}
               alt='chess'
             />
           )}
