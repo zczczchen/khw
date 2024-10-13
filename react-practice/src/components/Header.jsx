@@ -15,13 +15,13 @@ function Header() {
         {isTabletOrMobile ? (
           <img
             className='logo-img'
-            src={`${import.meta.env.BASE_URL}images/logo_s.svg`}
+            src={`${import.meta.env.BASE_URL}logo_s.svg`}
             alt='Logo'
           />
         ) : (
           <img
             className='logo-img'
-            src={`${import.meta.env.BASE_URL}images/logo.svg`}
+            src={`${import.meta.env.BASE_URL}logo.svg`}
             alt='Logo'
           />
         )}

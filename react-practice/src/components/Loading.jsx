@@ -6,7 +6,7 @@ function Loading() {
     <div className='loading-box'>
       <img
         className='loading-picture'
-        src={`${import.meta.env.BASE_URL}images/kono-loading.gif`}
+        src={`${import.meta.env.BASE_URL}kono-loading.gif`}
         alt='loading'
       />
     </div>

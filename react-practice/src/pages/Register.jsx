@@ -140,12 +140,12 @@ function Register() {
             >
               {showPassword ? (
                 <img
-                  src={`${import.meta.env.BASE_URL}images/eye-hide.svg`}
+                  src={`${import.meta.env.BASE_URL}eye-hide.svg`}
                   alt='hide password'
                 />
               ) : (
                 <img
-                  src={`${import.meta.env.BASE_URL}images/eye-show.svg`}
+                  src={`${import.meta.env.BASE_URL}eye-show.svg`}
                   alt='show password'
                 />
               )}
@@ -175,12 +175,12 @@ function Register() {
             >
               {showConfirmPassword ? (
                 <img
-                  src={`${import.meta.env.BASE_URL}images/eye-hide.svg`}
+                  src={`${import.meta.env.BASE_URL}eye-hide.svg`}
                   alt='hide password'
                 />
               ) : (
                 <img
-                  src={`${import.meta.env.BASE_URL}images/eye-show.svg`}
+                  src={`${import.meta.env.BASE_URL}eye-show.svg`}
                   alt='show password'
                 />
               )}
