@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+    <g data-name="KM logomark_32">
+        <path data-name="Rectangle 2076" style="fill:none" d="M0 0h32v32H0z"/>
+        <g data-name="Group 8350">
+            <path data-name="Path 2767" d="M95.119 6H81v2.14c1.615 0 5.777-.037 5.769 0a9401.858 9401.858 0 0 1-2.277 15.929 5.8 5.8 0 0 0 1.386 4.638C88.2 31.025 92 30.863 92 30.863l2.886-22.834.078-.647.026-.2v-.051z" transform="translate(-65.119 -2.499)" style="fill:#00a270"/>
+            <path data-name="Path 2768" d="M0 31.8h14.13v-2.14c-1.615 0-5.777.037-5.769 0 .155-1.149 2.277-15.929 2.277-15.929A5.766 5.766 0 0 0 9.247 9.1C6.933 6.774 3.123 6.937 3.123 6.937L.24 29.771l-.081.658-.026.2v.052z" transform="translate(2 -3.274)" style="fill:#0e2046"/>
+        </g>
+    </g>
+</svg>
